@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UBO-verifieringsguide för EU-banker: 6AMLD &amp; AMLA-efterlevna | Veridaq</title>
+  <meta name="description" content="Komplett UBO-verifieringsguide för EU-banker enligt 6AMLD och AMLA. Täcker 25%-tröskeln, kontrolltest, verifieringskällor och övervakning.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://veridaq.com/sv/blog/ubo-verification-guide-for-eu-banks-6amld-amla-compliance-swedish">
+  <link rel="stylesheet" href="/blog-static.css">
+
+  <!-- Sitemap discovery for crawlers -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://veridaq.com/sitemap.xml">
+
+  <!-- hreflang tags for multi-language SEO (only for available translations) -->
+  <link rel="alternate" hreflang="en" href="https://veridaq.com/blog/ubo-verification-guide-for-eu-banks-6amld-amla-compliance" />
+  <link rel="alternate" hreflang="da" href="https://veridaq.com/da/blog/ubo-verification-guide-for-eu-banks-6amld-amla-compliance-danish" />
+  <link rel="alternate" hreflang="sv" href="https://veridaq.com/sv/blog/ubo-verification-guide-for-eu-banks-6amld-amla-compliance-swedish" />
+  <link rel="alternate" hreflang="no" href="https://veridaq.com/no/blog/ubo-verification-guide-for-eu-banks-6amld-amla-compliance-norwegian" />
+  <link rel="alternate" hreflang="fi" href="https://veridaq.com/fi/blog/ubo-todentamisopas-eu-pankeille-6amld-amla" />
+  <link rel="alternate" hreflang="de" href="https://veridaq.com/de/blog/ubo-verification-guide-for-eu-banks-6amld-amla-compliance-german" />
+  <link rel="alternate" hreflang="fr" href="https://veridaq.com/fr/blog/ubo-verification-guide-for-eu-banks-6amld-amla-compliance-french" />
+  <link rel="alternate" hreflang="es" href="https://veridaq.com/es/blog/ubo-verification-guide-for-eu-banks-6amld-amla-compliance-spanish" />
+  <link rel="alternate" hreflang="it" href="https://veridaq.com/it/blog/ubo-verification-guide-for-eu-banks-6amld-amla-compliance-italian" />
+  <link rel="alternate" hreflang="pt" href="https://veridaq.com/pt/blog/ubo-verification-guide-for-eu-banks-6amld-amla-compliance-portuguese" />
+  <link rel="alternate" hreflang="nl" href="https://veridaq.com/nl/blog/ubo-verification-guide-for-eu-banks-6amld-amla-compliance-dutch" />
+  <link rel="alternate" hreflang="x-default" href="https://veridaq.com/blog/ubo-verification-guide-for-eu-banks-6amld-amla-compliance" />
+
+  <!-- Open Graph / Social Media Tags -->
+  
+  <meta property="og:title" content="Guide för UBO-verifiering för EU-banker: 6AMLD &amp; AMLA-efterlevnad">
+  <meta property="og:description" content="Komplett UBO-verifieringsguide för EU-banker enligt 6AMLD och AMLA. Täcker 25%-tröskeln, kontrolltest, verifieringskällor och övervakning.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://veridaq.com/sv/blog/ubo-verification-guide-for-eu-banks-6amld-amla-compliance-swedish">
+  <meta property="article:published_time" content="2025-11-18T09:39:06.614+00:00">
+  <meta property="article:modified_time" content="2025-11-18T10:30:54.32914+00:00">
+
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Guide för UBO-verifiering för EU-banker: 6AMLD &amp; AMLA-efterlevnad">
+  <meta name="twitter:description" content="Komplett UBO-verifieringsguide för EU-banker enligt 6AMLD och AMLA. Täcker 25%-tröskeln, kontrolltest, verifieringskällor och övervakning.">
+  
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Hem",
+      "item": "https://veridaq.com/sv/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blogg",
+      "item": "https://veridaq.com/sv/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Guide för UBO-verifiering för EU-banker: 6AMLD & AMLA-efterlevnad"
+    }
+  ]
+}
+  </script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Guide för UBO-verifiering för EU-banker: 6AMLD & AMLA-efterlevnad",
+  "alternativeHeadline": "UBO-verifieringsguide för EU-banker: 6AMLD & AMLA-efterlevna",
+  "description": "Komplett UBO-verifieringsguide för EU-banker enligt 6AMLD och AMLA. Täcker 25%-tröskeln, kontrolltest, verifieringskällor och övervakning.",
+  "datePublished": "2025-11-18T09:39:06.614+00:00",
+  "dateModified": "2025-11-18T10:30:54.32914+00:00",
+  "author": {
+    "@type": "Organization",
+    "name": "Veridaq",
+    "url": "https://veridaq.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://veridaq.com/images/veridaq-logo-transparent.png"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/veridaq"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Veridaq",
+    "url": "https://veridaq.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://veridaq.com/images/veridaq-logo-transparent.png",
+      "width": 200,
+      "height": 60
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://veridaq.com/sv/blog/ubo-verification-guide-for-eu-banks-6amld-amla-compliance-swedish"
+  },
+  "articleSection": "EU Compliance",
+  "articleBody": "Verifiering av verklig huvudman: Efterlevnadsguide för EU-bankerVerifiering av verklig huvudman (UBO) har tyst blivit en svag punkt i EU-bankernas efterlevnad. Trots 6AMLD:s harmoniserade ägandegräns på 25% kämpar banker fortfarande med verifieringsnoggrannhet, datatidsenlighet och löpande övervakning. Konsekvenserna blir allt mer allvarliga: BaFin bötfällde N26 med 9,2 miljoner euro 2024 för försenad SAR-inlämning och brister i UBO, och AMLA har identifierat ägandetransparens som en kärnövervakningsprioritet för 2027. Europeiska kommissionens gemensamma forskningscentrum har publicerat omfattande forskning om ägandekomplexitet, medan Financial Action Task Force fortsätter att betona UBO-verifiering som en grundläggande pelare inom AML.Det handlar inte bara om att undvika böter. Korrekt UBO-verifiering är grundläggande för att förstå vem du faktiskt bankar och om de utgör en penningtvättsrisk. Denna guide ger en praktisk ram för att bygga robusta UBO-processer som uppfyller 6AMLD idag och AMLA:s förstärkta krav imorgon.Steg 1: Etablera riskbaserade UBO-identifikationsprocedurerDet första steget är att skapa konsekventa processer för att identifiera UBO:er över alla kundtyper. AMLA förväntar sig att banker visar riskbaserade tillvägagångssätt som går bortom mekanisk gränskontroll. Identifiering kräver kartläggning av alla juridiska enheter till fysiska personer, eftersom den genomsnittliga företagskunden har 4,2 ägarled enligt Världsbankens forskning. När ägandet faller under 25% måste kontrolltester tillämpas för att bedöma faktorer som styrelseutnämningsbehörighet och dominerande röstinflytande. Enligt Artikel 13(1)(a) i 6AMLD måste du identifiera en senior ledande tjänsteman som UBO när ingen fysisk person kvalificerar sig genom ägande.Viktiga identifieringskrav inkluderar:Kedjekartläggning av ägande: Kartlägg alla juridiska enheter till fysiska personerTillämpning av kontrolltester: Bedöm styrelseutnämningsbehörighet och röstinflytande när ägandet &lt;25%Fallback för senior ledare: Identifiera senior ledande tjänsteman som UBO enligt 6AMLD när ingen fysisk person kvalificerar sigInkludering av kontingenta rättigheter: Räkna med optioner, konvertibla instrument och nominärarrangemang mot gränsen om de kan utnyttjas inom 60 dagarRiskbaserad verifieringsdjup varierar dramatiskt beroende på kundens risknivå. Lågrisk detaljhandelskunder kräver handelsregisterutdrag och lagstadgade deklarationer som uppdateras vart 36:e månad. Medelrisk SME:er behöver notariserade ägarhandlingar och oberoende källverifiering vart 24:e månad. Högrisk företagsenheter kräver förstärkt verifiering inklusive dokumentation av förmögenhetskälla med årliga uppdateringscykler. Kritiska riskrelationer kräver verifiering på plats vid UBO:s bostad eller huvudsakliga verksamhetsställe var sjätte månad.Dokumentationsstandarder måste inkludera:En enhetlig UBO-databas som kopplar alla enheter med en 360-graders relationsvyVisuell ägandekartläggning som visar procentandelar och kontrollrelationer (väsentligt för AMLA-inspektioner)Ett bevislager som lagrar alla verifieringsdokument med fem års retention enligt GDPR Artikel 17 undantagAutomatiserade ändringsdetekteringsvarningar som utlöses när UBO-information ändrasSteg 2: Verifiera UBO-information genom pålitliga källorEgen deklaration är inte längre tillräcklig för högriskrelationer. Du behöver oberoende, pålitliga källor som AMLA anser vara auktoritativa. Den primära källhierarkin börjar med API-åtkomst till EU:s register över verkliga huvudmän i alla 26 medlemsländer. Handelsregisterutdrag måste vara daterade inom 30 dagar för nya kunder och 90 dagar för förnyelser. För börsnoterade företag fungerar aktiemarknadsinlämningar som visar aktieägare över 5% ägande som primärt bevis. När UBO är en reglerad finansiell institution inom EES kan deras KYC-dokumentation fungera som sekundärt bevis.Sekundära stödkällor inkluderar:Bolagsordningar: Dokumentera kontrollmekanismer som röstningsrättigheter och styrelseutnämningsbehörighetTrustavtal: Verifiera stiftare, skyddare och förmånstagare—identifiering av förvaltare ensam är otillräcklig enligt FATF:s vägledningSamarbetsavtal: Kräver verifiering av komplementärpartner som har de facto kontroll oavsett ägarandelTingsrättsprotokoll: Tillhandahåller ägarändringar baserade på konkurs, skilsmässa eller rättsliga tvisterVerifieringsvarningssignaler kräver omedelbar uppmärksamhet:Källskillnader: Ägandeprocent som varierar mer än 5% mellan register och kunddeklarationNyliga företagsförändringar: Enheter yngre än sex månader utlöser krav på verifiering av finansieringskällorBäraraktiearrangemang: Får automatisk högriskklassificering som kräver fysisk förvaringJurisdiktionella mismatchar: UBO bosatt i en annan jurisdiktion än enhetsregistreringen kräver djupare undersökningTeknisk implementering kräver API-integration med över 20 EU UBO-register med automatiserad datainsamling och ändringsövervakning. Dokument-OCR bör extrahera ägarinformation från bolagsordni",
+  "wordCount": 1077,
+  "keywords": "UBO, efterlevnad, EU-banker, Finansinspektionen, SEB, Handelsbanken, Swedbank",
+  "inLanguage": "sv",
+  "url": "https://veridaq.com/sv/blog/ubo-verification-guide-for-eu-banks-6amld-amla-compliance-swedish"
+}
+  </script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Veridaq",
+  "url": "https://veridaq.com",
+  "logo": "https://veridaq.com/images/veridaq-logo-transparent.png",
+  "description": "EU's leading KYC & AML compliance platform"
+}
+  </script>
+
+  <!-- DataFeed schema for AI crawler discovery -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DataFeed",
+  "dataFeedElement": {
+    "@type": "DataFeedItem",
+    "item": {
+      "@type": "WebSite",
+      "url": "https://veridaq.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://veridaq.com/sitemap.xml"
+      }
+    }
+  },
+  "includedDataCatalog": "https://veridaq.com/sitemap.xml"
+}
+  </script>
+</head>
+<body class="blog-page">
+  
+    <header class="site-header" data-header>
+      <div class="blog-container site-header__content">
+        <div class="site-header__brand">
+          <button class="site-header__menu-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="site-header__menu-icon" aria-hidden="true"></span>
+          </button>
+          <a class="site-logo" href="/sv/" aria-label="Veridaq">
+            <img src="/images/veridaq-logo-transparent.png" alt="Veridaq" width="128" height="32">
+          </a>
+        </div>
+        <nav class="site-nav" aria-label="Primary navigation">
+          
+            <a class="site-nav__link" href="/sv/#features">Lösningar</a>
+          
+            <a class="site-nav__link" href="/sv/#industries">Branscher</a>
+          
+            <a class="site-nav__link" href="/sv/blog/">Blogg</a>
+          
+            <a class="site-nav__link" href="/sv/#benefits">Varför vi</a>
+          
+            <a class="site-nav__link" href="/sv/#contact">Kontakt</a>
+          
+        </nav>
+        <div class="site-header__actions">
+          
+    <div class="language-switcher" data-variant="desktop" data-current-language="sv" data-language-options="[{&quot;code&quot;:&quot;en&quot;,&quot;name&quot;:&quot;English&quot;,&quot;flag&quot;:&quot;🇬🇧&quot;},{&quot;code&quot;:&quot;da&quot;,&quot;name&quot;:&quot;Danish&quot;,&quot;flag&quot;:&quot;🇩🇰&quot;},{&quot;code&quot;:&quot;sv&quot;,&quot;name&quot;:&quot;Swedish&quot;,&quot;flag&quot;:&quot;🇸🇪&quot;},{&quot;code&quot;:&quot;no&quot;,&quot;name&quot;:&quot;Norwegian&quot;,&quot;flag&quot;:&quot;🇳🇴&quot;},{&quot;code&quot;:&quot;fi&quot;,&quot;name&quot;:&quot;Finnish&quot;,&quot;flag&quot;:&quot;🇫🇮&quot;},{&quot;code&quot;:&quot;de&quot;,&quot;name&quot;:&quot;German&quot;,&quot;flag&quot;:&quot;🇩🇪&quot;},{&quot;code&quot;:&quot;fr&quot;,&quot;name&quot;:&quot;French&quot;,&quot;flag&quot;:&quot;🇫🇷&quot;},{&quot;code&quot;:&quot;es&quot;,&quot;name&quot;:&quot;Spanish&quot;,&quot;flag&quot;:&quot;🇪🇸&quot;},{&quot;code&quot;:&quot;it&quot;,&quot;name&quot;:&quot;Italian&quot;,&quot;flag&quot;:&quot;🇮🇹&quot;},{&quot;code&quot;:&quot;pt&quot;,&quot;name&quot;:&quot;Portuguese&quot;,&quot;flag&quot;:&quot;🇵🇹&quot;},{&quot;code&quot;:&quot;nl&quot;,&quot;name&quot;:&quot;Dutch&quot;,&quot;flag&quot;:&quot;🇳🇱&quot;}]">
+      <button class="language-switcher__toggle" type="button" aria-haspopup="true" aria-expanded="false">
+        <span class="language-switcher__icon" aria-hidden="true">🌐</span>
+        <span class="language-switcher__text">Swedish</span>
+        <span class="language-switcher__flag" aria-hidden="true">🇸🇪</span>
+        <span class="language-switcher__chevron" aria-hidden="true">▼</span>
+      </button>
+      <div class="language-switcher__menu" role="listbox" aria-label="Language menu" hidden>
+        
+          <button class="language-switcher__option" type="button" data-language="en" role="option">
+            <span class="language-switcher__flag" aria-hidden="true">🇬🇧</span>
+            <span class="language-switcher__label">English</span>
+          </button>
+        
+          <button class="language-switcher__option" type="button" data-language="da" role="option">
+            <span class="language-switcher__flag" aria-hidden="true">🇩🇰</span>
+            <span class="language-switcher__label">Danish</span>
+          </button>
+        
+          <button class="language-switcher__option" type="button" data-language="sv" role="option">
+            <span class="language-switcher__flag" aria-hidden="true">🇸🇪</span>
+            <span class="language-switcher__label">Swedish</span>
+          </button>
+        
+          <button class="language-switcher__option" type="button" data-language="no" role="option">
+            <span class="language-switcher__flag" aria-hidden="true">🇳🇴</span>
+            <span class="language-switcher__label">Norwegian</span>
+          </button>
+        
+          <button class="language-switcher__option" type="button" data-language="fi" role="option">
+            <span class="language-switcher__flag" aria-hidden="true">🇫🇮</span>
+            <span class="language-switcher__label">Finnish</span>
+          </button>
+        
+          <button class="language-switcher__option" type="button" data-language="de" role="option">
+            <span class="language-switcher__flag" aria-hidden="true">🇩🇪</span>
+            <span class="language-switcher__label">German</span>
+          </button>
+        
+          <button class="language-switcher__option" type="button" data-language="fr" role="option">
+            <span class="language-switcher__flag" aria-hidden="true">🇫🇷</span>
+            <span class="language-switcher__label">French</span>
+          </button>
+        
+          <button class="language-switcher__option" type="button" data-language="es" role="option">
+            <span class="language-switcher__flag" aria-hidden="true">🇪🇸</span>
+            <span class="language-switcher__label">Spanish</span>
+          </button>
+        
+          <button class="language-switcher__option" type="button" data-language="it" role="option">
+            <span class="language-switcher__flag" aria-hidden="true">🇮🇹</span>
+            <span class="language-switcher__label">Italian</span>
+          </button>
+        
+          <button class="language-switcher__option" type="button" data-language="pt" role="option">
+            <span class="language-switcher__flag" aria-hidden="true">🇵🇹</span>
+            <span class="language-switcher__label">Portuguese</span>
+          </button>
+        
+          <button class="language-switcher__option" type="button" data-language="nl" role="option">
+            <span class="language-switcher__flag" aria-hidden="true">🇳🇱</span>
+            <span class="language-switcher__label">Dutch</span>
+          </button>
+        
+      </div>
+    </div>
+  
+          <a class="site-header__demo" href="/sv/#contact">Kontakta våra experter</a>
+        </div>
+      </div>
+
+      <div class="mobile-menu" data-mobile-menu>
+        <nav class="mobile-menu__nav" aria-label="Mobile navigation">
+          
+            <a class="mobile-menu__link" href="/sv/#features">Lösningar</a>
+          
+            <a class="mobile-menu__link" href="/sv/#industries">Branscher</a>
+          
+            <a class="mobile-menu__link" href="/sv/blog/">Blogg</a>
+          
+            <a class="mobile-menu__link" href="/sv/#benefits">Varför vi</a>
+          
+            <a class="mobile-menu__link" href="/sv/#contact">Kontakt</a>
+          
+        </nav>
+        <div class="mobile-menu__actions">
+          
+    <div class="language-switcher" data-variant="mobile" data-current-language="sv" data-language-options="[{&quot;code&quot;:&quot;en&quot;,&quot;name&quot;:&quot;English&quot;,&quot;flag&quot;:&quot;🇬🇧&quot;},{&quot;code&quot;:&quot;da&quot;,&quot;name&quot;:&quot;Danish&quot;,&quot;flag&quot;:&quot;🇩🇰&quot;},{&quot;code&quot;:&quot;sv&quot;,&quot;name&quot;:&quot;Swedish&quot;,&quot;flag&quot;:&quot;🇸🇪&quot;},{&quot;code&quot;:&quot;no&quot;,&quot;name&quot;:&quot;Norwegian&quot;,&quot;flag&quot;:&quot;🇳🇴&quot;},{&quot;code&quot;:&quot;fi&quot;,&quot;name&quot;:&quot;Finnish&quot;,&quot;flag&quot;:&quot;🇫🇮&quot;},{&quot;code&quot;:&quot;de&quot;,&quot;name&quot;:&quot;German&quot;,&quot;flag&quot;:&quot;🇩🇪&quot;},{&quot;code&quot;:&quot;fr&quot;,&quot;name&quot;:&quot;French&quot;,&quot;flag&quot;:&quot;🇫🇷&quot;},{&quot;code&quot;:&quot;es&quot;,&quot;name&quot;:&quot;Spanish&quot;,&quot;flag&quot;:&quot;🇪🇸&quot;},{&quot;code&quot;:&quot;it&quot;,&quot;name&quot;:&quot;Italian&quot;,&quot;flag&quot;:&quot;🇮🇹&quot;},{&quot;code&quot;:&quot;pt&quot;,&quot;name&quot;:&quot;Portuguese&quot;,&quot;flag&quot;:&quot;🇵🇹&quot;},{&quot;code&quot;:&quot;nl&quot;,&quot;name&quot;:&quot;Dutch&quot;,&quot;flag&quot;:&quot;🇳🇱&quot;}]">
+      <button class="language-switcher__toggle" type="button" aria-haspopup="true" aria-expanded="false">
+        <span class="language-switcher__icon" aria-hidden="true">🌐</span>
+        <span class="language-switcher__text">Swedish</span>
+        <span class="language-switcher__flag" aria-hidden="true">🇸🇪</span>
+        <span class="language-switcher__chevron" aria-hidden="true">▼</span>
+      </button>
+      <div class="language-switcher__menu" role="listbox" aria-label="Language menu" hidden>
+        
+          <button class="language-switcher__option" type="button" data-language="en" role="option">
+            <span class="language-switcher__flag" aria-hidden="true">🇬🇧</span>
+            <span class="language-switcher__label">English</span>
+          </button>
+        
+          <button class="language-switcher__option" type="button" data-language="da" role="option">
+            <span class="language-switcher__flag" aria-hidden="true">🇩🇰</span>
+            <span class="language-switcher__label">Danish</span>
+          </button>
+        
+          <button class="language-switcher__option" type="button" data-language="sv" role="option">
+            <span class="language-switcher__flag" aria-hidden="true">🇸🇪</span>
+            <span class="language-switcher__label">Swedish</span>
+          </button>
+        
+          <button class="language-switcher__option" type="button" data-language="no" role="option">
+            <span class="language-switcher__flag" aria-hidden="true">🇳🇴</span>
+            <span class="language-switcher__label">Norwegian</span>
+          </button>
+        
+          <button class="language-switcher__option" type="button" data-language="fi" role="option">
+            <span class="language-switcher__flag" aria-hidden="true">🇫🇮</span>
+            <span class="language-switcher__label">Finnish</span>
+          </button>
+        
+          <button class="language-switcher__option" type="button" data-language="de" role="option">
+            <span class="language-switcher__flag" aria-hidden="true">🇩🇪</span>
+            <span class="language-switcher__label">German</span>
+          </button>
+        
+          <button class="language-switcher__option" type="button" data-language="fr" role="option">
+            <span class="language-switcher__flag" aria-hidden="true">🇫🇷</span>
+            <span class="language-switcher__label">French</span>
+          </button>
+        
+          <button class="language-switcher__option" type="button" data-language="es" role="option">
+            <span class="language-switcher__flag" aria-hidden="true">🇪🇸</span>
+            <span class="language-switcher__label">Spanish</span>
+          </button>
+        
+          <button class="language-switcher__option" type="button" data-language="it" role="option">
+            <span class="language-switcher__flag" aria-hidden="true">🇮🇹</span>
+            <span class="language-switcher__label">Italian</span>
+          </button>
+        
+          <button class="language-switcher__option" type="button" data-language="pt" role="option">
+            <span class="language-switcher__flag" aria-hidden="true">🇵🇹</span>
+            <span class="language-switcher__label">Portuguese</span>
+          </button>
+        
+          <button class="language-switcher__option" type="button" data-language="nl" role="option">
+            <span class="language-switcher__flag" aria-hidden="true">🇳🇱</span>
+            <span class="language-switcher__label">Dutch</span>
+          </button>
+        
+      </div>
+    </div>
+  
+          <a class="site-header__demo site-header__demo--full" href="/sv/#contact">Kontakta våra experter</a>
+        </div>
+      </div>
+    </header>
+  
+  <div class="blog-header-spacer"></div>
+  <header class="blog-hero">
+    <div class="blog-container post-hero-content">
+      <nav class="breadcrumb-trail" aria-label="Breadcrumb">
+        <a href="/sv/">Hem</a>
+        <a href="/sv/blog/">Blogg</a>
+        <span class="current">Guide för UBO-verifiering för EU-banker: 6AMLD &amp; AMLA-efterlevnad</span>
+      </nav>
+      <a class="back-pill" href="/sv/blog/">← Tillbaka till alla artiklar</a>
+      <div class="category-badge">EU-efterlevnad</div>
+      <h1 class="post-title">Guide för UBO-verifiering för EU-banker: 6AMLD &amp; AMLA-efterlevnad</h1>
+      <div class="metadata-chips">
+        <span class="meta-chip"><span class="meta-icon" aria-hidden="true">👤</span>Veridaq-teamet</span>
+        <span class="meta-chip"><span class="meta-icon" aria-hidden="true">📅</span><time datetime="2025-11-18T09:39:06.614+00:00">18 november 2025</time></span>
+        <span class="meta-chip"><span class="meta-icon" aria-hidden="true">⏱</span>6 min läsning</span>
+      </div>
+      <div class="post-excerpt">Komplett UBO-verifieringsguide för EU-banker enligt 6AMLD och AMLA. Täcker 25%-tröskeln, kontrolltest, verifieringskällor och övervakning.</div>
+    </div>
+  </header>
+
+  
+
+  <main class="blog-article">
+    <div class="blog-container">
+      <article class="blog-prose">
+<h1>Verifiering av verklig huvudman: Efterlevnadsguide för EU-banker</h1><p>Verifiering av verklig huvudman (UBO) har tyst blivit en svag punkt i EU-bankernas efterlevnad. Trots 6AMLD:s harmoniserade ägandegräns på 25% kämpar banker fortfarande med verifieringsnoggrannhet, datatidsenlighet och löpande övervakning. Konsekvenserna blir allt mer allvarliga: <strong>BaFin bötfällde N26 med 9,2 miljoner euro</strong> 2024 för försenad SAR-inlämning och brister i UBO, och <strong>AMLA har identifierat ägandetransparens som en kärnövervakningsprioritet</strong> för 2027. <a href=\"https://joint-research-centre.ec.europa.eu/jrc-activities-fight-against-financial-crime_en\">Europeiska kommissionens gemensamma forskningscentrum</a> har publicerat omfattande forskning om ägandekomplexitet, medan <a href=\"https://www.fatf-gafi.org/publications/fatfrecommendations/documents/beneficial-ownership.html\">Financial Action Task Force</a> fortsätter att betona UBO-verifiering som en grundläggande pelare inom AML.</p><p>Det handlar inte bara om att undvika böter. <strong>Korrekt UBO-verifiering är grundläggande för att förstå vem du faktiskt bankar</strong> och om de utgör en penningtvättsrisk. Denna guide ger en praktisk ram för att bygga robusta UBO-processer som uppfyller 6AMLD idag och AMLA:s förstärkta krav imorgon.</p><h2>Steg 1: Etablera riskbaserade UBO-identifikationsprocedurer</h2><p>Det första steget är att skapa konsekventa processer för att identifiera UBO:er över alla kundtyper. AMLA förväntar sig att banker visar <strong>riskbaserade tillvägagångssätt som går bortom mekanisk gränskontroll</strong>. Identifiering kräver kartläggning av alla juridiska enheter till fysiska personer, eftersom den genomsnittliga företagskunden har <strong>4,2 ägarled</strong> enligt <a href=\"https://www.worldbank.org/en/publication/global-benchmark-database\">Världsbankens forskning</a>. När ägandet faller under 25% måste kontrolltester tillämpas för att bedöma faktorer som styrelseutnämningsbehörighet och dominerande röstinflytande. Enligt <strong>Artikel 13(1)(a) i <a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32018L1673\">6AMLD</a></strong> måste du identifiera en senior ledande tjänsteman som UBO när ingen fysisk person kvalificerar sig genom ägande.</p><p><strong>Viktiga identifieringskrav inkluderar:</strong></p><ul><li><strong>Kedjekartläggning av ägande</strong>: Kartlägg alla juridiska enheter till fysiska personer</li><li><strong>Tillämpning av kontrolltester</strong>: Bedöm styrelseutnämningsbehörighet och röstinflytande när ägandet &lt;25%</li><li><strong>Fallback för senior ledare</strong>: Identifiera senior ledande tjänsteman som UBO enligt 6AMLD när ingen fysisk person kvalificerar sig</li><li><strong>Inkludering av kontingenta rättigheter</strong>: Räkna med optioner, konvertibla instrument och nominärarrangemang mot gränsen om de kan utnyttjas inom 60 dagar</li></ul><p>Riskbaserad verifieringsdjup varierar dramatiskt beroende på kundens risknivå. <strong>Lågrisk detaljhandelskunder</strong> kräver handelsregisterutdrag och lagstadgade deklarationer som uppdateras vart 36:e månad. <strong>Medelrisk SME:er</strong> behöver notariserade ägarhandlingar och oberoende källverifiering vart 24:e månad. <strong>Högrisk företagsenheter</strong> kräver förstärkt verifiering inklusive dokumentation av förmögenhetskälla med årliga uppdateringscykler. <strong>Kritiska riskrelationer</strong> kräver verifiering på plats vid UBO:s bostad eller huvudsakliga verksamhetsställe var sjätte månad.</p><p><strong>Dokumentationsstandarder måste inkludera:</strong></p><ul><li>En enhetlig UBO-databas som kopplar alla enheter med en 360-graders relationsvy</li><li>Visuell ägandekartläggning som visar procentandelar och kontrollrelationer (väsentligt för AMLA-inspektioner)</li><li>Ett bevislager som lagrar alla verifieringsdokument med fem års retention enligt GDPR Artikel 17 undantag</li><li>Automatiserade ändringsdetekteringsvarningar som utlöses när UBO-information ändras</li></ul><h2>Steg 2: Verifiera UBO-information genom pålitliga källor</h2><p>Egen deklaration är inte längre tillräcklig för högriskrelationer. Du behöver <strong>oberoende, pålitliga källor som AMLA anser vara auktoritativa</strong>. Den primära källhierarkin börjar med <strong>API-åtkomst till EU:s register över verkliga huvudmän</strong> i alla 26 medlemsländer. Handelsregisterutdrag måste vara daterade inom 30 dagar för nya kunder och 90 dagar för förnyelser. För börsnoterade företag fungerar aktiemarknadsinlämningar som visar aktieägare över 5% ägande som primärt bevis. När UBO är en reglerad finansiell institution inom EES kan deras KYC-dokumentation fungera som sekundärt bevis.</p><p><strong>Sekundära stödkällor inkluderar:</strong></p><ul><li><strong>Bolagsordningar</strong>: Dokumentera kontrollmekanismer som röstningsrättigheter och styrelseutnämningsbehörighet</li><li><strong>Trustavtal</strong>: Verifiera stiftare, skyddare och förmånstagare—identifiering av förvaltare ensam är otillräcklig enligt FATF:s vägledning</li><li><strong>Samarbetsavtal</strong>: Kräver verifiering av komplementärpartner som har de facto kontroll oavsett ägarandel</li><li><strong>Tingsrättsprotokoll</strong>: Tillhandahåller ägarändringar baserade på konkurs, skilsmässa eller rättsliga tvister</li></ul><p><strong>Verifieringsvarningssignaler kräver omedelbar uppmärksamhet:</strong></p><ul><li><strong>Källskillnader</strong>: Ägandeprocent som varierar mer än 5% mellan register och kunddeklaration</li><li><strong>Nyliga företagsförändringar</strong>: Enheter yngre än sex månader utlöser krav på verifiering av finansieringskällor</li><li><strong>Bäraraktiearrangemang</strong>: Får automatisk högriskklassificering som kräver fysisk förvaring</li><li><strong>Jurisdiktionella mismatchar</strong>: UBO bosatt i en annan jurisdiktion än enhetsregistreringen kräver djupare undersökning</li></ul><p>Teknisk implementering kräver <strong>API-integration med över 20 EU UBO-register</strong> med automatiserad datainsamling och ändringsövervakning. Dokument-OCR bör extrahera ägarinformation från bolagsordningar med mål på 95% noggrannhet. För kryptorelaterade UBO:er verifierar blockchain-analyser on-chain ägande mot deklarerad information inom 24 timmar.</p><h2>Steg 3: Implementera löpande övervakning och förändringshantering</h2><p>UBO-verifiering är inte en engångsprocess vid onboarding. <strong>AMLA kräver kontinuerlig övervakning</strong> med dokumenterade förändringshanteringsprocedurer. Mekanismer för förändringsdetektion inkluderar automatiserade dagliga skanningar av EU:s register över verkliga huvudmän, analys av transaktionsmönster som flaggar aktivitet som inte stämmer överens med kända UBO-profiler, och realtidsmediebevakning för UBO:s död, konkurs, brottsmisstankar eller sanktionslistor.</p><p><strong>Arbetsflöden för förändringshantering måste hantera:</strong></p><ul><li><strong>Identifiering av materiella förändringar</strong>: Ägarskiften som överstiger 5% eller nya UBO:er utlöser förstärkt due diligence inom fem arbetsdagar</li><li><strong>Dokumentationsuppdateringar</strong>: Interna UBO-register uppdateras inom två arbetsdagar efter verifieringens slutförande</li><li><strong>Riskåterbedömning</strong>: Automatisk omberäkning av kundens riskpoäng baserat på nya UBO-riskprofiler</li><li><strong>Periodisk re-verifiering</strong>: Lågrisk detaljhandel var 36:e månad, medelrisk SME var 24:e månad, högrisk företag var 12:e månad, kritisk risk var var sjätte månad</li></ul><p><strong>AMLA-specifika överväganden:</strong>&nbsp;Rapportering i nära realtid av materiella UBO-förändringar kommer sannolikt att krävas när regleringen slutförs under Q2 2026. Årliga intyg från penningtvättsansvariga som bekräftar fullständigheten av UBO-data blir obligatoriska. Tredjepartsberoende kräver dokumentation som visar att andra FIU:ers eller revisorers verifieringsprocedurer uppfyller AMLA-standarder. För CASP:er måste blockchain-integration verifiera on-chain ägarförändringar inom 24 timmar.</p><h3>Tabel: Källor för UBO-verifiering efter risknivå</h3><table><thead><tr><th>Risknivå</th><th>Primära källor</th><th>Verifieringsfrekvens</th><th>På-plats-besök krävs</th><th>AMLA-dokumentationsstandard</th></tr></thead><tbody><tr><td>Låg (Detaljhandel)</td><td>Handelsregister, Lagstadgad deklaration</td><td>36 månader</td><td>Nej</td><td>Digiarkiv</td></tr><tr><td>Medel (SME)</td><td>Notariserade dokument, Oberoende källor</td><td>24 månader</td><td>Nej</td><td>Evidenslager med fem års retention</td></tr><tr><td>Hög (Företag)</td><td>Mångsidig verifiering, Förmögenhetskälla</td><td>12 månader</td><td>Ja (för verkliga huvudmän)</td><td>Versionskontrollerat register</td></tr><tr><td>Kritisk (PEP/Komplex)</td><td>Alla ovan + Verifiering på plats</td><td>6 månader</td><td>Ja (UBO + senior ledning)</td><td>Blockchain-verifierad revisionsspårning</td></tr></tbody></table><h2>Strategiska fördelar bortom UBO-efterlevnad</h2><p>Här är vad efterlevnadsleverantörerna inte kommer att berätta för dig: <strong>robust UBO-verifiering ger verkliga affärsfördelar</strong>&nbsp;bortom att undvika böter. Banker som har implementerat omfattande UBO-program rapporterar betydande operativa förbättringar.</p><p><strong>Riskminskning:</strong>&nbsp;Effektiv UBO-verifiering minskar falska positiva resultat med 40% eftersom du verkligen förstår dina kunder. <a href=\"https://www.eba.europa.eu/document-library-publications/anti-money-laundering-and-countering-financing-of-terrorism-risk-based-supervision\">Europeiska bankmyndighetens rapport 2023</a>&nbsp;bekräftar att banker med starka UBO-processer upplever färre regulatoriska utmaningar. När du vet exakt vem som äger vad blir transaktionsövervakningen mycket mer exakt.</p><p><strong>Operativ effektivitet:</strong>&nbsp;Automatiserad UBO-övervakning minskar manuella granskningar med 60%. Enligt <a href=\"https://www2.deloitte.com/uk/en/pages/financial-services/articles/aml-survey.html\">Deloittes europeiska AML-undersökning 2024</a>&nbsp;onboardar banker med realtidsregisterintegration företagskunder tre gånger snabbare. Den operativa bördan av periodiska uppdateringscykler minskar dramatiskt när ändringsdetektering är automatiserad.</p><p><strong>Konkurrenspositionering:</strong>&nbsp;I en era av transparens värderar <strong>kunder banker som visar robusta UBO-kontroller</strong>. Institutionella kunder, särskilt de med komplexa ägarstrukturer, söker aktivt partners som inte skapar flaskhalsar vid onboarding. Din förmåga att effektivt verifiera och övervaka UBO:er blir en kommersiell differentierare i RFP-processer.</p><p><strong>Finansiell påverkan:</strong>&nbsp;Den <a href=\"https://commission.europa.eu/funding-tenders/find-funding/funding-management-mode/anti-money-laundering-counter-terrorist-financing-aml-cft_en\">Europeiska kommissionens verkställighetsdatabas</a>&nbsp;visar att böter relaterade till UBO i genomsnitt var 50 miljoner euro under 2024. Omfattande UBO-verifiering eliminerar i stort sett denna riskkategori samtidigt som den möjliggör snabbare och mer självsäker affärsexpansion till nya jurisdiktioner.</p><h2>Sammanfattning: Vägen till UBO-transparens</h2><p>Att bemästra UBO-verifiering är inte en efterlevnadsövning—det är en <strong>strategisk transformation</strong>&nbsp;som positionerar din bank för framgång under Europas nya tillsynsregim. Övergången från checkboxverifiering till dynamisk, riskbaserad UBO-hantering representerar en grundläggande utveckling i hur banker förstår sina kunder. Institutioner som investerar nu i automatiserad registerintegration, kontinuerlig övervakning och robust förändringshantering kommer att se omedelbara fördelar: 60% färre manuella granskningar, 40% minskning av falska positiva resultat och snabbare onboarding av kunder. Med AMLA:s deadline 2027 närmar sig fönstret för implementering snabbt. Banker som ser UBO-verifiering som en möjlighet snarare än en börda kommer att framträda starkare, mer effektiva och bättre positionerade i det transparenta finansiella ekosystemet som Europa bygger.</p>
+      </article>
+
+      <section class="share-strip" aria-label="Dela den här artikeln">
+        <div>
+          <h3>Dela den här artikeln</h3>
+          <p>Hjälp andra att följa EU-regleringar</p>
+        </div>
+        <div class="share-links">
+          <a class="share-pill" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fveridaq.com%2Fsv%2Fblog%2Fubo-verification-guide-for-eu-banks-6amld-amla-compliance-swedish" target="_blank" rel="noopener" aria-label="Dela på LinkedIn">in</a>
+          <a class="share-pill" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fveridaq.com%2Fsv%2Fblog%2Fubo-verification-guide-for-eu-banks-6amld-amla-compliance-swedish&text=Guide%20f%C3%B6r%20UBO-verifiering%20f%C3%B6r%20EU-banker%3A%206AMLD%20%26%20AMLA-efterlevnad" target="_blank" rel="noopener" aria-label="Dela på Twitter">X</a>
+          <a class="share-pill" href="mailto:?subject=Guide%20f%C3%B6r%20UBO-verifiering%20f%C3%B6r%20EU-banker%3A%206AMLD%20%26%20AMLA-efterlevnad&body=I%20thought%20you%20might%20find%20this%20EU%20compliance%20article%20interesting%3A%20https%3A%2F%2Fveridaq.com%2Fsv%2Fblog%2Fubo-verification-guide-for-eu-banks-6amld-amla-compliance-swedish"  aria-label="Dela på Email">@</a>
+        </div>
+      </section>
+
+      <section class="related-section">
+        <h3>Relaterade artiklar</h3>
+        <div class="related-grid">
+      <a class="related-card" href="/sv/blog/customer-risk-scoring-model-guide-for-eu-banks-2025-swedish/">
+        <span>Kundriskbedömningsmodell: En guide för EU-banker 2025</span>
+        <p>Bygg effektiva AML-riskbedömningsmodeller för EU-banker. Täcker AML-paket tidslinjer, riskfaktorer, validering och plattformstransparens.</p>
+      </a>
+    
+
+      <a class="related-card" href="/sv/blog/amla-readiness-guide-for-eu-banks-2025-2027-swedish/">
+        <span>AMLA Beredskapsguide för EU-banker 2025-2027</span>
+        <p>Förberedelser för AMLA kräver en fasad plan med fokus på datakvalitet och operativ beredskap.</p>
+      </a>
+    
+
+      <a class="related-card" href="/sv/blog/kycaml-from-cost-to-productivity-multiplier-swedish/">
+        <span>KYC/AML: Från kostnad till produktivitetsmultiplikator</span>
+        <p>KYC-automatisering förbättrar effektivitet och beredskap inför EU:s nya AML-regler.</p>
+      </a>
+    </div>
+      </section>
+
+      <section class="cta-block">
+        <div class="cta-icon" aria-hidden="true">⚡</div>
+        <h3>Redo att implementera dessa compliance-strategier?</h3>
+        <p>Våra compliance-experter kan hjälpa dig att implementera strategierna som diskuteras i den här artikeln. Boka en konsultation för personlig vägledning.</p>
+        <a class="cta-button" href="#contact">Få Expert Konsultation →</a>
+      </section>
+    </div>
+  </main>
+
+  
+    <footer class="site-footer">
+      <div class="blog-container">
+        <div class="site-footer__grid">
+          <div class="site-footer__brand">
+            <a class="site-logo" href="/sv/" aria-label="Företag">
+              <img src="/images/veridaq-logo-transparent.png" alt="Företag" width="128" height="32">
+            </a>
+            <p class="site-footer__description">Veridaq levererar AI-drivna efterlevnadslösningar som är 10x snabbare med 90% färre falska positiva. Komplett AML Suite för företag, KYC Lite för tillväxtföretag.</p>
+            <div class="site-footer__contact">
+              <div class="site-footer__contact-item">sales@veridaq.com</div>
+              <div class="site-footer__contact-item">+45 31272726</div>
+              <div class="site-footer__contact-item">Fruebjergvej 3\n2100 Köpenhamn\nDanmark</div>
+            </div>
+          </div>
+          <div>
+            <h3 class="site-footer__heading">AI-drivna Lösningar</h3>
+            <ul class="site-footer__list">
+              <li><a href="/sv/#features">KYC Lite</a></li>
+              <li><a href="/sv/#features">Komplett AML Suite</a></li>
+              <li><a href="/sv/#eu-compliance">EU AMLR 2027 Native</a></li>
+              <li><a href="/sv/#features">Omedelbar Dokumentverifiering</a></li>
+              <li><a href="/sv/#features">Beteende-AI Övervakning</a></li>
+              <li><a href="/sv/#features">Prediktiv Riskmotor</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="site-footer__heading">Branscher</h3>
+            <ul class="site-footer__list">
+              <li><a href="/sv/#industries">Traditionell Bankverksamhet</a></li>
+              <li><a href="/sv/#industries">FinTech &amp; Neobanker</a></li>
+              <li><a href="/sv/#industries">Krypto &amp; Digitala Tillgångar</a></li>
+              <li><a href="/sv/#industries">Högvärdiga Fastigheter</a></li>
+              <li><a href="/sv/#industries">Gaming &amp; iGaming</a></li>
+              <li><a href="/sv/#industries">Marknadsplatser &amp; E-handel</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="site-footer__heading">Företag</h3>
+            <ul class="site-footer__list">
+              <li><a href="/sv/blog/">Efterlevnadsinsikter</a></li>
+              <li><a href="/sv/#benefits">Varför Veridaq</a></li>
+              <li><a href="/sv/#contact">Boka Demo</a></li>
+              <li><a href="/privacy-policy">Integritetspolicy</a></li>
+              <li><a href="/terms-of-service">Användarvillkor</a></li>
+              <li><a href="/privacy-by-design">Privacy by Design</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="site-footer__bottom">
+          <div class="site-footer__copyright">© 2025 Veridaq. Alla rättigheter förbehållna. | AI-driven Efterlevnadsplattform</div>
+          <div class="site-footer__bottom-links">
+            <a href="#">Banknivå-säkerhet</a>
+            <a href="#">AMLR 2027 Redo</a>
+            <a href="#">Status</a>
+            <a class="emphasis" href="/sv/#contact">Boka Din Demo</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  
+  
+    <script type="module">
+      import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+      const SUPABASE_URL = "https://rjncawbywidrtwcprfgw.supabase.co";
+      const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJqbmNhd2J5d2lkcnR3Y3ByZmd3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY4OTcyMzgsImV4cCI6MjA3MjQ3MzIzOH0.vp8ZGIhRDvJrun3YoTJLJJH8P5Dx2SheEltVBXhujjc";
+      const LANGUAGE_OPTIONS = [{"code":"en","name":"engelska","flag":"🇬🇧"},{"code":"da","name":"danska","flag":"🇩🇰"},{"code":"sv","name":"svenska","flag":"🇸🇪"},{"code":"no","name":"norska","flag":"🇳🇴"},{"code":"fi","name":"finska","flag":"🇫🇮"},{"code":"de","name":"tyska","flag":"🇩🇪"},{"code":"fr","name":"franska","flag":"🇫🇷"},{"code":"es","name":"spanska","flag":"🇪🇸"},{"code":"it","name":"italienska","flag":"🇮🇹"},{"code":"pt","name":"portugisiska","flag":"🇵🇹"},{"code":"nl","name":"nederländska","flag":"🇳🇱"}];
+      const SUPPORTED_LANGUAGES = ["en","da","sv","no","fi","de","fr","es","it","pt","nl"];
+      const PAGE_CONTEXT = {"currentLanguage":"sv","pageType":"post","currentSlug":"ubo-verification-guide-for-eu-banks-6amld-amla-compliance-swedish","availableTranslations":{"es":"ubo-verification-guide-for-eu-banks-6amld-amla-compliance-spanish","sv":"ubo-verification-guide-for-eu-banks-6amld-amla-compliance-swedish","no":"ubo-verification-guide-for-eu-banks-6amld-amla-compliance-norwegian","fi":"ubo-todentamisopas-eu-pankeille-6amld-amla","da":"ubo-verification-guide-for-eu-banks-6amld-amla-compliance-danish","de":"ubo-verification-guide-for-eu-banks-6amld-amla-compliance-german","fr":"ubo-verification-guide-for-eu-banks-6amld-amla-compliance-french","it":"ubo-verification-guide-for-eu-banks-6amld-amla-compliance-italian","pt":"ubo-verification-guide-for-eu-banks-6amld-amla-compliance-portuguese","nl":"ubo-verification-guide-for-eu-banks-6amld-amla-compliance-dutch","en":"ubo-verification-guide-for-eu-banks-6amld-amla-compliance"}};
+      const LANGUAGE_FLAGS = {"en":"🇬🇧","da":"🇩🇰","sv":"🇸🇪","no":"🇳🇴","fi":"🇫🇮","de":"🇩🇪","fr":"🇫🇷","es":"🇪🇸","it":"🇮🇹","pt":"🇵🇹","nl":"🇳🇱"};
+      const PREFERENCE_KEY = 'preferredLanguage';
+
+      const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+      const normalizeLanguage = (code) => {
+        if (!code) return 'en';
+        const base = code.toLowerCase().split('-')[0];
+        return SUPPORTED_LANGUAGES.includes(base) ? base : 'en';
+      };
+
+      const getLanguageFromPath = () => {
+        const segments = window.location.pathname.split('/').filter(Boolean);
+        if (segments.length > 0 && SUPPORTED_LANGUAGES.includes(segments[0])) {
+          return segments[0];
+        }
+        return 'en';
+      };
+
+      const findTranslatedPostSlug = async (currentSlug, currentLang, targetLang) => {
+        try {
+          if (currentLang === targetLang) return currentSlug;
+
+          if (currentLang === 'en') {
+            const { data: postData } = await supabase
+              .from('posts')
+              .select('id')
+              .eq('slug', currentSlug)
+              .eq('status', 'published')
+              .maybeSingle();
+
+            if (!postData?.id) return null;
+
+            const { data } = await supabase
+              .from('post_translations')
+              .select('slug')
+              .eq('language_code', targetLang)
+              .eq('published', true)
+              .eq('translation_status', 'completed')
+              .eq('post_id', postData.id)
+              .maybeSingle();
+
+            return data?.slug || null;
+          }
+
+          if (targetLang === 'en') {
+            const { data, error } = await supabase
+              .from('post_translations')
+              .select('post_id')
+              .eq('slug', currentSlug)
+              .eq('language_code', currentLang)
+              .eq('published', true)
+              .maybeSingle();
+
+            if (error || !data?.post_id) return null;
+
+            const { data: postData } = await supabase
+              .from('posts')
+              .select('slug')
+              .eq('id', data.post_id)
+              .eq('status', 'published')
+              .maybeSingle();
+
+            return postData?.slug || null;
+          }
+
+          const { data: translationData, error: translationError } = await supabase
+            .from('post_translations')
+            .select('post_id')
+            .eq('slug', currentSlug)
+            .eq('language_code', currentLang)
+            .eq('published', true)
+            .maybeSingle();
+
+          if (translationError || !translationData?.post_id) return null;
+
+          const { data: targetData } = await supabase
+            .from('post_translations')
+            .select('slug')
+            .eq('post_id', translationData.post_id)
+            .eq('language_code', targetLang)
+            .eq('published', true)
+            .eq('translation_status', 'completed')
+            .maybeSingle();
+
+          return targetData?.slug || null;
+        } catch (error) {
+          console.error('Error finding translated post:', error);
+          return null;
+        }
+      };
+
+      const fetchAvailableTranslations = async (currentSlug, currentLang) => {
+        try {
+          const normalizedCurrent = normalizeLanguage(currentLang);
+          let postId = null;
+
+          if (normalizedCurrent === 'en') {
+            const { data } = await supabase
+              .from('posts')
+              .select('id')
+              .eq('slug', currentSlug)
+              .eq('status', 'published')
+              .maybeSingle();
+
+            postId = data?.id || null;
+          } else {
+            const { data } = await supabase
+              .from('post_translations')
+              .select('post_id')
+              .eq('slug', currentSlug)
+              .eq('language_code', normalizedCurrent)
+              .eq('published', true)
+              .maybeSingle();
+
+            postId = data?.post_id || null;
+          }
+
+          if (!postId) return {};
+
+          const translationMap = {};
+
+          const { data: translations } = await supabase
+            .from('post_translations')
+            .select('language_code, slug')
+            .eq('post_id', postId)
+            .eq('published', true)
+            .eq('translation_status', 'completed');
+
+          translations?.forEach(entry => {
+            const baseLang = normalizeLanguage(entry.language_code);
+            translationMap[baseLang] = entry.slug;
+          });
+
+          const { data: englishPost } = await supabase
+            .from('posts')
+            .select('slug')
+            .eq('id', postId)
+            .eq('status', 'published')
+            .maybeSingle();
+
+          if (englishPost?.slug) {
+            translationMap.en = englishPost.slug;
+          }
+
+          return translationMap;
+        } catch (error) {
+          console.error('Error loading available translations:', error);
+          return {};
+        }
+      };
+
+      const closeMenus = () => {
+        document.querySelectorAll('.language-switcher__menu').forEach(menu => {
+          menu.setAttribute('hidden', '');
+        });
+        document.querySelectorAll('.language-switcher__toggle').forEach(toggle => {
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      };
+
+      const updateActiveLanguage = (language) => {
+        const normalized = normalizeLanguage(language);
+        document.querySelectorAll('.language-switcher').forEach((switcher) => {
+          switcher.setAttribute('data-current-language', normalized);
+          const toggleText = switcher.querySelector('.language-switcher__text');
+          const toggleFlag = switcher.querySelector('.language-switcher__flag');
+          const activeOption = LANGUAGE_OPTIONS.find(opt => opt.code === normalized) || LANGUAGE_OPTIONS[0];
+
+          if (toggleText) toggleText.textContent = activeOption?.name || 'English';
+          if (toggleFlag) toggleFlag.textContent = activeOption?.flag || LANGUAGE_FLAGS[normalized] || '🌐';
+
+          switcher.querySelectorAll('.language-switcher__option').forEach(option => {
+            const optionLang = option.getAttribute('data-language');
+            if (optionLang === normalized) {
+              option.classList.add('is-active');
+              option.setAttribute('aria-selected', 'true');
+            } else {
+              option.classList.remove('is-active');
+              option.removeAttribute('aria-selected');
+            }
+          });
+        });
+      };
+
+      const filterAvailableLanguages = (availableMap = {}) => {
+        const availableLanguages = Object.keys(availableMap);
+        const restrictOptions = PAGE_CONTEXT.pageType === 'post' && availableLanguages.length > 0;
+
+        document.querySelectorAll('.language-switcher__option').forEach(option => {
+          const optionLang = option.getAttribute('data-language');
+          if (restrictOptions && !availableLanguages.includes(optionLang)) {
+            option.setAttribute('hidden', '');
+          } else {
+            option.removeAttribute('hidden');
+          }
+        });
+      };
+
+        const handleNavigation = async (targetLanguage) => {
+          const baseLanguage = normalizeLanguage(targetLanguage);
+          const pathSegments = window.location.pathname.split('/').filter(Boolean);
+          const supportedLanguageCodes = SUPPORTED_LANGUAGES.filter(lang => lang !== 'en');
+
+          let currentLang = 'en';
+          let pathAfterLang = [...pathSegments];
+
+          if (pathSegments.length > 0 && supportedLanguageCodes.includes(pathSegments[0])) {
+            currentLang = pathSegments[0];
+            pathAfterLang = pathSegments.slice(1);
+          }
+
+          const isBlogPost = pathAfterLang.length >= 2 && pathAfterLang[0] === 'blog' && pathAfterLang[1];
+          const isBlogListing = pathAfterLang.length === 1 && pathAfterLang[0] === 'blog';
+
+          if (isBlogPost) {
+            const currentSlug = pathAfterLang[1];
+            const translatedSlug = await findTranslatedPostSlug(currentSlug, currentLang, baseLanguage);
+
+            if (translatedSlug) {
+              const newPath = baseLanguage === 'en'
+                ? '/blog/' + translatedSlug + '/'
+                : '/' + baseLanguage + '/blog/' + translatedSlug + '/';
+              window.location.assign(newPath);
+              return;
+            }
+
+            const fallbackPath = baseLanguage === 'en'
+              ? '/blog/'
+              : '/' + baseLanguage + '/blog/';
+            window.location.assign(fallbackPath);
+            return;
+          }
+
+          if (isBlogListing) {
+            const listingPath = baseLanguage === 'en'
+              ? '/blog/'
+              : '/' + baseLanguage + '/blog/';
+            window.location.assign(listingPath);
+            return;
+          }
+
+          const defaultPath = baseLanguage === 'en' ? '/' : '/' + baseLanguage + '/';
+          window.location.assign(defaultPath);
+        };
+
+      const buildMenus = (availableTranslations = {}) => {
+        document.querySelectorAll('.language-switcher').forEach((switcher) => {
+          const toggle = switcher.querySelector('.language-switcher__toggle');
+          const menu = switcher.querySelector('.language-switcher__menu');
+
+          if (!toggle || !menu) return;
+
+          const savedPreference = normalizeLanguage(localStorage.getItem(PREFERENCE_KEY) || PAGE_CONTEXT.currentLanguage);
+          switcher.setAttribute('data-current-language', savedPreference);
+          updateActiveLanguage(savedPreference);
+
+          toggle.addEventListener('click', (event) => {
+            event.stopPropagation();
+            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+            closeMenus();
+            if (!isExpanded) {
+              menu.removeAttribute('hidden');
+              toggle.setAttribute('aria-expanded', 'true');
+            }
+          });
+
+          switcher.querySelectorAll('.language-switcher__option').forEach(option => {
+            option.addEventListener('click', async () => {
+              const language = option.getAttribute('data-language');
+              localStorage.setItem(PREFERENCE_KEY, language);
+              updateActiveLanguage(language);
+              closeMenus();
+              await handleNavigation(language);
+            });
+          });
+        });
+
+        filterAvailableLanguages(availableTranslations);
+      };
+
+      document.addEventListener('click', (event) => {
+        const isMenuClick = event.target.closest('.language-switcher');
+        if (!isMenuClick) {
+          closeMenus();
+        }
+      });
+
+      document.addEventListener('keyup', (event) => {
+        if (event.key === 'Escape') closeMenus();
+      });
+
+      const setupHeaderToggle = () => {
+        const toggle = document.querySelector('.site-header__menu-toggle');
+        const mobileMenu = document.querySelector('[data-mobile-menu]');
+
+        if (!toggle || !mobileMenu) return;
+
+        toggle.addEventListener('click', () => {
+          const isOpen = mobileMenu.classList.toggle('is-open');
+          toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          if (isOpen) {
+            document.body.classList.add('menu-open');
+          } else {
+            document.body.classList.remove('menu-open');
+          }
+        });
+      };
+
+      const initialize = async () => {
+        const detectedLanguage = normalizeLanguage(getLanguageFromPath());
+        PAGE_CONTEXT.currentLanguage = detectedLanguage;
+
+        let availableTranslations = PAGE_CONTEXT.availableTranslations || {};
+
+        if (PAGE_CONTEXT.pageType === 'post' && PAGE_CONTEXT.currentSlug) {
+          const latestTranslations = await fetchAvailableTranslations(PAGE_CONTEXT.currentSlug, detectedLanguage);
+          availableTranslations = Object.keys(latestTranslations).length > 0 ? latestTranslations : availableTranslations;
+        }
+
+        buildMenus(availableTranslations);
+        setupHeaderToggle();
+      };
+
+      initialize();
+    </script>
+  
+</body>
+</html>
