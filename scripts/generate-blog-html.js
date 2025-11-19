@@ -210,27 +210,17 @@ function calculateReadingTime(content) {
 function getPostDescription(post, maxLength = 160) {
   if (!post) return '';
 
+  // Only use meta_description field
   const description = [
     post.meta_description,
-    post.posts?.meta_description,
-    post.excerpt,
-    post.posts?.excerpt,
-    post.summary,
-    post.posts?.summary
+    post.posts?.meta_description
   ].find(value => typeof value === 'string' && value.trim().length > 0);
 
   if (description) {
     return description.trim();
   }
 
-  if (post.content) {
-    return post.content
-      .replace(/<[^>]*>/g, ' ')
-      .trim()
-      .slice(0, maxLength)
-      .trim();
-  }
-
+  // Return empty string if no meta_description is available
   return '';
 }
 
@@ -1125,27 +1115,27 @@ function createBlogPostHTML(post, language, allPosts = [], availableTranslations
 
   <!-- hreflang tags for multi-language SEO (only for available translations) -->
   ${(() => {
-    const hreflangs = [];
+      const hreflangs = [];
 
-    // Add English version if it exists
-    if (availableTranslations.en) {
-      hreflangs.push(`<link rel="alternate" hreflang="en" href="https://veridaq.com/blog/${availableTranslations.en}" />`);
-    }
-
-    // Add other language versions that exist
-    LANGUAGES.filter(lang => lang !== 'en').forEach(lang => {
-      if (availableTranslations[lang]) {
-        hreflangs.push(`<link rel="alternate" hreflang="${lang}" href="https://veridaq.com/${lang}/blog/${availableTranslations[lang]}" />`);
+      // Add English version if it exists
+      if (availableTranslations.en) {
+        hreflangs.push(`<link rel="alternate" hreflang="en" href="https://veridaq.com/blog/${availableTranslations.en}" />`);
       }
-    });
 
-    // Add x-default pointing to English
-    if (availableTranslations.en) {
-      hreflangs.push(`<link rel="alternate" hreflang="x-default" href="https://veridaq.com/blog/${availableTranslations.en}" />`);
-    }
+      // Add other language versions that exist
+      LANGUAGES.filter(lang => lang !== 'en').forEach(lang => {
+        if (availableTranslations[lang]) {
+          hreflangs.push(`<link rel="alternate" hreflang="${lang}" href="https://veridaq.com/${lang}/blog/${availableTranslations[lang]}" />`);
+        }
+      });
 
-    return hreflangs.join('\n  ');
-  })()}
+      // Add x-default pointing to English
+      if (availableTranslations.en) {
+        hreflangs.push(`<link rel="alternate" hreflang="x-default" href="https://veridaq.com/blog/${availableTranslations.en}" />`);
+      }
+
+      return hreflangs.join('\n  ');
+    })()}
 
   <!-- Open Graph / Social Media Tags -->
   ${post.featured_image_url ? `<meta property="og:image" content="${post.featured_image_url}">` : ''}
