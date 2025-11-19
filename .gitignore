@@ -23,3 +23,11 @@ dist-ssr
 *.sln
 *.sw?
 .env
+
+# Antigravity development utilities
+scripts/dev-utils/
+*.backup
+
+# Temporary analysis files
+missing-meta-descriptions.json
+translations-missing-meta.json
