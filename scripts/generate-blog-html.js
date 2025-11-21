@@ -859,7 +859,7 @@ function createBlogListingHTML(posts, language, translations, headerTranslations
     const categoryLabel = translations.categoryLabel || 'EU Compliance';
     const readMoreLabel = translations.readMore || 'Read more';
     const minReadLabel = translations.minRead || 'min read';
-    const description = getMetaDescription(post);
+    const description = getSummary(post);
     const excerpt = description ? escapeHtml(description) : '';
 
     return `
@@ -1202,8 +1202,6 @@ ${JSON.stringify(organizationSchema, null, 2)}
   </script>
 </head>
 <body class="blog-page">
-  ${headerHTML}
-  <div class="blog-header-spacer"></div>
   <header class="blog-hero">
     <div class="blog-container post-hero-content">
       <nav class="breadcrumb-trail" aria-label="Breadcrumb">

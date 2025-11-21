@@ -120,9 +120,31 @@ const TranslationsView: React.FC<TranslationsViewProps> = ({ quickAction }) => {
             <Globe className="w-6 h-6 text-white" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-neutral-900 via-primary-700 to-neutral-900 bg-clip-text text-transparent">Translations</h1>
-            <p className="text-neutral-600">Manage multi-language content and AI translations</p>
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-neutral-900 via-primary-700 to-neutral-900 bg-clip-text text-transparent">Multi-language Management</h1>
+            <p className="text-neutral-600">Manage AI-powered translations for your blog content across {LANGUAGES.length} languages</p>
           </div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div className="bg-rose-50 p-6 rounded-2xl border border-rose-100">
+          <div className="w-12 h-12 bg-rose-500 rounded-xl flex items-center justify-center mb-4 shadow-sm text-white">
+            <FileText className="w-6 h-6" />
+          </div>
+          <div className="text-3xl font-bold text-rose-900 mb-1">
+            {posts.filter(p => p.status === 'published').length}
+          </div>
+          <div className="text-rose-600 font-medium">Published Posts</div>
+        </div>
+
+        <div className="bg-emerald-50 p-6 rounded-2xl border border-emerald-100">
+          <div className="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center mb-4 shadow-sm text-white">
+            <CheckCircle className="w-6 h-6" />
+          </div>
+          <div className="text-3xl font-bold text-emerald-900 mb-1">
+            {translations.filter(t => t.translation_status === 'completed').length}
+          </div>
+          <div className="text-emerald-600 font-medium">Completed Translations</div>
         </div>
       </div>
 
@@ -146,7 +168,8 @@ const TranslationsView: React.FC<TranslationsViewProps> = ({ quickAction }) => {
           // Assuming output is roughly equal to input for translation (1:1 ratio is a safe upper bound estimate for pricing display)
           const estimatedInputCost = currentModel ? (estimatedTokens / 1000000) * currentModel.inputPrice : 0;
           const estimatedOutputCost = currentModel ? (estimatedTokens / 1000000) * currentModel.outputPrice : 0;
-          const totalEstimatedCost = estimatedInputCost + estimatedOutputCost;
+          const costPerLang = estimatedInputCost + estimatedOutputCost;
+          const totalMissingCost = costPerLang * missingLanguages.length;
 
           return (
             <div key={post.id} className="bg-white p-8 rounded-3xl shadow-sm border border-neutral-200/50 hover:shadow-lg transition-all duration-500">
@@ -165,33 +188,63 @@ const TranslationsView: React.FC<TranslationsViewProps> = ({ quickAction }) => {
                   </div>
                 </div>
 
-                {/* Per-Post Model Selection & Cost Estimation */}
-                <div className="flex flex-col items-end gap-2">
-                  <div className="flex items-center gap-2 bg-neutral-50 p-2 rounded-xl border border-neutral-200">
-                    <Settings className="w-4 h-4 text-neutral-400" />
-                    <select
-                      value={currentModelId}
-                      onChange={(e) => setPostModel(post.id, e.target.value)}
-                      className="bg-transparent border-none text-sm font-medium text-neutral-700 focus:ring-0 cursor-pointer"
-                    >
-                      {CLAUDE_MODELS.map(model => (
-                        <option key={model.id} value={model.id}>
-                          {model.name} ({model.cost})
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div className="text-xs text-neutral-500 font-medium">
-                    Est. Cost: <span className="text-success-600">${totalEstimatedCost.toFixed(4)}</span> / lang
-                  </div>
-
-                  {isTokenWarning && (
-                    <div className="flex items-center gap-1 text-xs text-warning-600 bg-warning-50 px-2 py-1 rounded-lg border border-warning-200">
-                      <AlertTriangle className="w-3 h-3" />
-                      Exceeds max output
+                <div className="flex items-start gap-4">
+                  <div className="flex flex-col items-end gap-2">
+                    <div className="flex items-center gap-2 bg-neutral-50 p-2 rounded-xl border border-neutral-200">
+                      <Settings className="w-4 h-4 text-neutral-400" />
+                      <select
+                        value={currentModelId}
+                        onChange={(e) => setPostModel(post.id, e.target.value)}
+                        className="bg-transparent border-none text-sm font-medium text-neutral-700 focus:ring-0 cursor-pointer"
+                      >
+                        {CLAUDE_MODELS.map(model => (
+                          <option key={model.id} value={model.id}>
+                            {model.name} ({model.cost})
+                          </option>
+                        ))}
+                      </select>
                     </div>
-                  )}
+
+                    <div className="text-xs text-neutral-500 font-medium text-right">
+                      Est. Cost: <span className="text-success-600">${costPerLang.toFixed(4)}</span> / lang
+                      {missingLanguages.length > 0 && (
+                        <div className="text-neutral-400">
+                          Total: <span className="text-success-600">${totalMissingCost.toFixed(4)}</span> ({missingLanguages.length} langs)
+                        </div>
+                      )}
+                    </div>
+
+                    {isTokenWarning && (
+                      <div className="flex items-center gap-1 text-xs text-warning-600 bg-warning-50 px-2 py-1 rounded-lg border border-warning-200">
+                        <AlertTriangle className="w-3 h-3" />
+                        Exceeds max output
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => window.open(`#blog/${post.slug}`, '_blank')}
+                      className="px-4 py-2 bg-white border border-neutral-200 text-neutral-600 rounded-xl hover:bg-neutral-50 hover:border-neutral-300 transition-all duration-200 flex items-center gap-2 font-medium text-sm"
+                    >
+                      <Eye className="w-4 h-4" />
+                      View Post
+                    </button>
+
+                    {missingLanguages.length > 0 && (
+                      <button
+                        onClick={() => handleTriggerTranslation(post.id, missingLanguages)}
+                        disabled={translating.has(`${post.id}-${missingLanguages.join(',')}`) || !!isTokenWarning}
+                        className={`px-4 py-2 rounded-xl transition-all duration-200 flex items-center gap-2 font-medium text-sm shadow-sm ${isTokenWarning
+                            ? 'bg-neutral-100 text-neutral-400 cursor-not-allowed border border-neutral-200'
+                            : 'bg-rose-500 text-white hover:bg-rose-600 hover:shadow-md border border-rose-600'
+                          }`}
+                      >
+                        <Zap className="w-4 h-4" />
+                        Create All Missing
+                      </button>
+                    )}
+                  </div>
                 </div>
               </div>
 

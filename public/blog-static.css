@@ -40,6 +40,7 @@
   --bp-lg: 1024px;
   --bp-xl: 1280px;
 }
+
 /* ========================================
    Base & Layout
 ======================================== */
@@ -483,7 +484,7 @@ a:focus {
     display: none;
   }
 
-  .site-header__actions > .site-header__demo,
+  .site-header__actions>.site-header__demo,
   .language-switcher[data-variant="desktop"] {
     display: none;
   }
@@ -528,6 +529,7 @@ a:focus {
 }
 
 @media (min-width: 1024px) {
+
   .mobile-menu,
   .language-switcher[data-variant="mobile"] {
     display: none !important;
@@ -540,7 +542,7 @@ a:focus {
 
 .blog-hero {
   position: relative;
-  padding: 6rem 0 4rem;
+  padding: 3rem 0 2rem;
   background: var(--gradient-hero);
   overflow: hidden;
 }
@@ -757,10 +759,21 @@ a:focus {
   margin: 2.5rem 0 1.25rem;
 }
 
-.blog-prose h1 { font-size: 2.25rem; }
-.blog-prose h2 { font-size: 1.75rem; }
-.blog-prose h3 { font-size: 1.35rem; }
-.blog-prose h4 { font-size: 1.15rem; }
+.blog-prose h1 {
+  font-size: 2.25rem;
+}
+
+.blog-prose h2 {
+  font-size: 1.75rem;
+}
+
+.blog-prose h3 {
+  font-size: 1.35rem;
+}
+
+.blog-prose h4 {
+  font-size: 1.15rem;
+}
 
 .blog-prose p {
   margin-bottom: 1.5rem;
@@ -1382,6 +1395,7 @@ a:focus {
 }
 
 @keyframes floaty {
+
   0%,
   100% {
     transform: translateY(0px);
@@ -1530,4 +1544,3 @@ footer.blog-footer p {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
-
