@@ -52,6 +52,22 @@ export const estimateTokenCount = (text: string): number => {
     return Math.ceil(text.length / 4);
 };
 
+export const recommendModelForTokens = (estimatedTokens: number): string => {
+    // Apply 10% buffer to token count
+    const bufferedTokens = Math.ceil(estimatedTokens * 1.1);
+
+    // Sort models by total cost (input + output price), cheapest first
+    const sortedModels = [...CLAUDE_MODELS].sort((a, b) =>
+        (a.inputPrice + a.outputPrice) - (b.inputPrice + b.outputPrice)
+    );
+
+    // Find cheapest model that can handle the buffered tokens
+    const recommendedModel = sortedModels.find(m => m.maxOutput >= bufferedTokens);
+
+    // Fallback to largest model if none can handle it
+    return recommendedModel?.id || CLAUDE_MODELS[CLAUDE_MODELS.length - 1].id;
+};
+
 export const useTranslationManager = (posts: any[]) => {
     const [translations, setTranslations] = useState<any[]>([]);
     const [loading, setLoading] = useState(false);
@@ -127,6 +143,19 @@ export const useTranslationManager = (posts: any[]) => {
     useEffect(() => {
         fetchTranslations();
     }, [fetchTranslations]);
+
+    // Auto-initialize model recommendations based on post token counts
+    useEffect(() => {
+        if (posts.length > 0) {
+            const recommendations: Record<string, string> = {};
+            posts.forEach(post => {
+                const tokens = estimateTokenCount(post.content || '');
+                recommendations[post.id] = recommendModelForTokens(tokens);
+            });
+            setPostModels(recommendations);
+            console.log('🎯 Auto-initialized model recommendations for', posts.length, 'posts');
+        }
+    }, [posts]);
 
     const triggerTranslation = async (postId: string, languages: string[]) => {
         const modelToUse = getPostModel(postId);
