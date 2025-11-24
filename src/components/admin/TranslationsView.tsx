@@ -6,7 +6,6 @@ import {
   Globe,
   CheckCircle,
   Clock,
-  AlertCircle,
   FileText,
   Eye,
   Edit,
@@ -29,7 +28,6 @@ const TranslationsView: React.FC<TranslationsViewProps> = ({ quickAction }) => {
     translations,
     translating,
     updating,
-    failedTranslations,
     retrying,
     getPostModel,
     setPostModel,
@@ -37,6 +35,8 @@ const TranslationsView: React.FC<TranslationsViewProps> = ({ quickAction }) => {
     toggleTranslationStatus,
     deleteTranslation,
     retryTranslation,
+    createTranslation,
+    updateTranslation,
     cancelPendingTranslation,
   } = useTranslationManager(posts);
 
@@ -105,29 +105,43 @@ const TranslationsView: React.FC<TranslationsViewProps> = ({ quickAction }) => {
     );
   }
 
-  if (editingTranslation) {
-    return (
-      <TranslationEditor
-        translation={editingTranslation}
-        onCancel={() => setEditingTranslation(null)}
-        onSave={() => setEditingTranslation(null)}
-      />
-    );
-  }
-
   if (manualCreation) {
     const language = LANGUAGES.find((l) => l.code === manualCreation.langCode);
     return (
       <ManualTranslationCreator
         post={manualCreation.post}
         languageCode={manualCreation.langCode}
-        languageName={language?.name || ''}
-        languageFlag={language?.flag || ''}
-        onCancel={() => setManualCreation(null)}
+        languageName={language?.name || manualCreation.langCode}
         onSave={async (translationData: any) => {
-          // TODO: integrate with translation manager if needed
-          setManualCreation(null);
+          try {
+            await createTranslation(translationData);
+            setManualCreation(null);
+          } catch (error) {
+            console.error('Failed to save manual translation:', error);
+            alert('Failed to save translation. Please try again.');
+            throw error;
+          }
         }}
+        onCancel={() => setManualCreation(null)}
+      />
+    );
+  }
+
+  if (editingTranslation) {
+    return (
+      <TranslationEditor
+        translation={editingTranslation}
+        onSave={async (translationData: any) => {
+          try {
+            await updateTranslation(editingTranslation.id, translationData);
+            setEditingTranslation(null);
+          } catch (error) {
+            console.error('Failed to update translation:', error);
+            alert('Failed to update translation. Please try again.');
+            throw error;
+          }
+        }}
+        onCancel={() => setEditingTranslation(null)}
       />
     );
   }
@@ -176,10 +190,6 @@ const TranslationsView: React.FC<TranslationsViewProps> = ({ quickAction }) => {
             (lang) => !getTranslationStatus(post.id, lang.code) && !translating.has(`${post.id}-${lang.code}`)
           ).map((l) => l.code);
 
-          const failedCount = LANGUAGES.filter(
-            (lang) => getTranslationStatus(post.id, lang.code)?.translation_status === 'failed'
-          ).length;
-
           const estimatedTokens = estimateTokenCount(post.content || '');
           const currentModelId = getPostModel(post.id);
           const currentModel = CLAUDE_MODELS.find((m) => m.id === currentModelId);
@@ -198,7 +208,7 @@ const TranslationsView: React.FC<TranslationsViewProps> = ({ quickAction }) => {
                   <div className="flex items-center gap-4 text-sm text-neutral-500">
                     <span className="flex items-center gap-1">
                       <Clock className="w-4 h-4" />
-                      {new Date(post.published_at).toLocaleDateString()}
+                      {post.published_at ? new Date(post.published_at).toLocaleDateString() : 'N/A'}
                     </span>
                     <span className="flex items-center gap-1">
                       <FileText className="w-4 h-4" />
@@ -246,7 +256,7 @@ const TranslationsView: React.FC<TranslationsViewProps> = ({ quickAction }) => {
                     {missingLanguages.length > 0 && (
                       <button
                         onClick={() => handleTriggerTranslation(post.id, missingLanguages)}
-                        disabled={translating.has(`${post.id}-${missingLanguages.join(',')}`) || !!isTokenWarning}
+                        disabled={missingLanguages.some(lang => translating.has(`${post.id}-${lang}`)) || !!isTokenWarning}
                         className={`px-4 py-2 rounded-xl transition-all duration-200 flex items-center gap-2 font-medium text-sm shadow-sm ${isTokenWarning ? 'bg-neutral-100 text-neutral-400 cursor-not-allowed border border-neutral-200' : 'bg-rose-500 text-white hover:bg-rose-600 hover:shadow-md border border-rose-600'}`}
                       >
                         <Zap className="w-4 h-4" /> Create All Missing
@@ -389,14 +399,23 @@ const TranslationsView: React.FC<TranslationsViewProps> = ({ quickAction }) => {
                             )}
                           </button>
                         ) : (
-                          <button
-                            onClick={() => handleTriggerTranslation(post.id, [lang.code])}
-                            disabled={isTranslating || !!isTokenWarning}
-                            className={`p-2 text-primary-600 hover:text-primary-700 transition-all duration-200 rounded-lg hover:bg-primary-100 hover:scale-110 flex-shrink-0 ${isTokenWarning ? 'opacity-50 cursor-not-allowed' : ''}`}
-                            title={isTokenWarning ? 'Token limit exceeded' : `AI Translate to ${lang.name}`}
-                          >
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                          </button>
+                          <>
+                            <button
+                              onClick={() => createManualTranslation(post, lang.code)}
+                              className="p-2 text-neutral-500 hover:text-neutral-700 transition-all duration-200 rounded-lg hover:bg-neutral-100 hover:scale-110 flex-shrink-0"
+                              title={`Manually translate to ${lang.name}`}
+                            >
+                              <PenLine className="w-4 h-4" />
+                            </button>
+                            <button
+                              onClick={() => handleTriggerTranslation(post.id, [lang.code])}
+                              disabled={isTranslating || !!isTokenWarning}
+                              className={`p-2 text-primary-600 hover:text-primary-700 transition-all duration-200 rounded-lg hover:bg-primary-100 hover:scale-110 flex-shrink-0 ${isTokenWarning ? 'opacity-50 cursor-not-allowed' : ''}`}
+                              title={isTokenWarning ? 'Token limit exceeded' : `AI Translate to ${lang.name}`}
+                            >
+                              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                            </button>
+                          </>
                         )}
                       </div>
                     </div>

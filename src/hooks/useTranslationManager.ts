@@ -97,7 +97,7 @@ export const useTranslationManager = (posts: any[]) => {
                 .from('api_settings')
                 .select('setting_value')
                 .eq('setting_name', 'standard_translation_model')
-                .single();
+                .maybeSingle();
 
             if (error) {
                 // It's okay if this fails (e.g. setting doesn't exist yet), just use default
@@ -174,7 +174,8 @@ export const useTranslationManager = (posts: any[]) => {
                 throw new Error('Post not found');
             }
 
-            for (const languageCode of languages) {
+            // Create an array of promises for parallel execution
+            const translationPromises = languages.map(async (languageCode) => {
                 const currentKey = `${postId}-${languageCode}`;
 
                 // Check if translation already exists
@@ -189,15 +190,15 @@ export const useTranslationManager = (posts: any[]) => {
                         newSet.delete(currentKey);
                         return newSet;
                     });
-                    continue;
+                    return;
                 }
 
                 // Call the translate-post Edge Function
                 const requestPayload = {
                     postId: postId,
                     targetLanguages: [languageCode],
-                    translationProvider: 'claude', // Changed from 'openai' to 'claude' as per plan
-                    model: modelToUse // Pass the selected model
+                    translationProvider: 'claude',
+                    model: modelToUse
                 };
 
                 try {
@@ -224,36 +225,34 @@ export const useTranslationManager = (posts: any[]) => {
                         setFailedTranslations(prev => new Set([...prev, currentKey]));
                     }
 
-                    setTranslating(prev => {
-                        const newSet = new Set(prev);
-                        newSet.delete(currentKey);
-                        return newSet;
-                    });
-
                 } catch (aiError) {
-                    console.error('❌ AI Translation network/API error:', aiError);
+                    console.error(`❌ AI Translation network/API error for ${languageCode}:`, aiError);
                     setFailedTranslations(prev => new Set([...prev, currentKey]));
+                } finally {
+                    // Always remove from translating set when done (success or fail)
                     setTranslating(prev => {
                         const newSet = new Set(prev);
                         newSet.delete(currentKey);
                         return newSet;
                     });
                 }
-            }
+            });
 
-            // Refresh translations
+            // Execute all translations in parallel
+            await Promise.all(translationPromises);
+
+            // Refresh translations after all are done
             await fetchTranslations();
 
         } catch (error) {
             console.error('Translation error:', error);
-
-            // Clear all translation keys on error
+            // Clear all translation keys on critical error
             setTranslating(prev => {
                 const newSet = new Set(prev);
                 translationKeys.forEach(key => newSet.delete(key));
                 return newSet;
             });
-            throw error; // Re-throw to let UI handle notification
+            throw error;
         }
     };
 
@@ -292,6 +291,35 @@ export const useTranslationManager = (posts: any[]) => {
             await fetchTranslations();
         } catch (error) {
             console.error('Error deleting translation:', error);
+            throw error;
+        }
+    };
+
+    const createTranslation = async (translationData: any) => {
+        try {
+            const { error } = await supabase
+                .from('post_translations')
+                .insert(translationData);
+
+            if (error) throw error;
+            await fetchTranslations();
+        } catch (error) {
+            console.error('Error creating translation:', error);
+            throw error;
+        }
+    };
+
+    const updateTranslation = async (translationId: string, translationData: any) => {
+        try {
+            const { error } = await supabase
+                .from('post_translations')
+                .update(translationData)
+                .eq('id', translationId);
+
+            if (error) throw error;
+            await fetchTranslations();
+        } catch (error) {
+            console.error('Error updating translation:', error);
             throw error;
         }
     };
@@ -357,6 +385,8 @@ export const useTranslationManager = (posts: any[]) => {
         toggleTranslationStatus,
         deleteTranslation,
         retryTranslation,
+        createTranslation,
+        updateTranslation,
         cancelPendingTranslation,
         forceStopAllTranslations
     };

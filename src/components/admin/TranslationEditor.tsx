@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { X, Save, Globe, ArrowLeft } from 'lucide-react';
+import { Save, ArrowLeft } from 'lucide-react';
 import UnifiedRichTextEditor from '../blog/UnifiedRichTextEditor';
-import ImageUploader from '../blog/ImageUploader';
 
 interface TranslationEditorProps {
   translation: any;
-  onSave: (translationData: any) => void;
+  onSave: (translationData: any) => Promise<void> | void;
   onCancel: () => void;
 }
 
@@ -23,7 +22,7 @@ const TranslationEditor: React.FC<TranslationEditorProps> = ({ translation, onSa
   const getLanguageName = (code: string) => {
     const languageNames: Record<string, string> = {
       'da': 'Danish',
-      'sv': 'Swedish', 
+      'sv': 'Swedish',
       'no': 'Norwegian',
       'fi': 'Finnish',
       'de': 'German',
@@ -65,13 +64,16 @@ const TranslationEditor: React.FC<TranslationEditorProps> = ({ translation, onSa
     }
   }, [translation]);
 
-  const handleSave = () => {
+  const handleSave = async () => {
     setSaving(true);
-    
-    setTimeout(() => {
-      onSave(formData);
+    try {
+      await onSave(formData);
+    } catch (error) {
+      console.error('Failed to save translation:', error);
+      alert('Failed to save translation. Please try again.');
+    } finally {
       setSaving(false);
-    }, 1000);
+    }
   };
 
   return (
@@ -239,11 +241,10 @@ const TranslationEditor: React.FC<TranslationEditorProps> = ({ translation, onSa
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-neutral-700">Published</span>
-                  <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
-                    translation.published !== false 
-                      ? 'bg-success-100 text-success-700' 
+                  <span className={`px-2 py-1 rounded-full text-xs font-semibold ${translation.published !== false
+                      ? 'bg-success-100 text-success-700'
                       : 'bg-neutral-100 text-neutral-700'
-                  }`}>
+                    }`}>
                     {translation.published !== false ? '🌍 Live' : '📝 Draft'}
                   </span>
                 </div>
